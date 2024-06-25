@@ -1,0 +1,17 @@
+.header
+{
+    color: #102f41;
+    background: #2aa1cd;
+    flex: 0.09;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 10px;
+    font-family: Helvetica;
+}
+
+label
+{
+    color: #102f41;
+    font-weight: bold;
+    font-family: Helvetica;
+}
