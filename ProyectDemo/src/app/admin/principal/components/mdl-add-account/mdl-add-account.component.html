@@ -1,0 +1,17 @@
+<div class="row mb-3">
+    <div class="col-5">
+        <input id="txtCelda1" name="txtCelda1" (paste)="pegarCelda($event)" [(ngModel)]="txtCelda1" type="text" class="form-control">
+    </div>
+    <div class="col-5">
+      <input id="txtCelda2" name="txtCelda1" (paste)="pegarCelda($event)" [(ngModel)]="txtCelda2" type="text" class="form-control">
+  </div>
+  <div class="col-2">
+    <button class="btn btn-primary container-fluid" (click)="applyFilter()"><fa-icon [icon]="faSearch"></fa-icon></button>
+  </div>
+</div>
+
+<div class="row">
+    <div class="col-12" *ngIf="flgView">
+        <ms-table [dataArray]="dataArray" [displayedColumns]="formatColumn"></ms-table>
+    </div>
+</div>

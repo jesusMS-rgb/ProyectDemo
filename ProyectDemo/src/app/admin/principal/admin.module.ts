@@ -5,10 +5,11 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MainPageComponent } from './pages/main-page/main-page.component';
 import { SharedModule } from '../../shared/shared.module';
+import { MdlAddAccountComponent } from './components/mdl-add-account/mdl-add-account.component';
 
 
 @NgModule({
-    declarations: [MainPageComponent],
+    declarations: [MainPageComponent, MdlAddAccountComponent],
     imports: [
         CommonModule,
         FormsModule,
@@ -17,4 +18,5 @@ import { SharedModule } from '../../shared/shared.module';
         SharedModule
     ]
 })
+
 export class AdminModule { }

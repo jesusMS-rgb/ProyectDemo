@@ -1,6 +1,5 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 
 
@@ -14,11 +13,11 @@ export class ModalCmtComponent implements OnInit
 {
   @ViewChild('mdl') private mdl: any;
   @Input() Title = '';
-  @Input() TitleIcon = '';
+  @Input() TitleIcon: any;
   @Input() Size = 'sm';
   @Input() ShowBtnAccept = true;
 
-  iconTimes = faTimes;
+  iconClose = faTimes;
   open: boolean = false;
   mdlRef: NgbModalRef | undefined;
 

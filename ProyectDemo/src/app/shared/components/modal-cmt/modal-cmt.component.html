@@ -1,8 +1,11 @@
 <ng-template #mdl let-modal>
-  <div class="modal-header">
-      <h5 class="modal-title"> {{Title}}</h5>
-      <button type="button" class="close" aria-label="Close" (click)="closeModal()">
-
-      </button>
+  <div class="modal-header d-flex justify-content-between">
+          <h5 class="modal-title"><fa-icon [icon]="TitleIcon"></fa-icon> {{Title}} </h5> 
+          <button type="button" class="float-end button-close" (click)="closeModal()">
+            <fa-icon [icon]="iconClose"></fa-icon>
+          </button> 
+  </div>
+  <div class="modal-body">
+      <ng-content></ng-content>
   </div>
 </ng-template>

@@ -1,0 +1,19 @@
+.button-right 
+{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.button-close
+{
+    background: transparent;
+    border-color: transparent;
+    transition: 0.5ms;
+    font-size: 24px;
+}
+
+.button-close:hover
+{
+    color: gray;
+}
+
