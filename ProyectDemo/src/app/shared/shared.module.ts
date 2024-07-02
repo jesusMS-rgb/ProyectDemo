@@ -8,7 +8,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MsTableComponent } from './components/ms-table/ms-table.component';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-
+import { MatInputModule } from '@angular/material/input';
 
 
 @NgModule({
@@ -24,7 +24,8 @@ import { MatSort } from '@angular/material/sort';
     MatPaginatorModule,
     MatSortModule,
     MatPaginator,
-    MatSort
+    MatSort,
+    MatInputModule
   ],
   exports: 
   [

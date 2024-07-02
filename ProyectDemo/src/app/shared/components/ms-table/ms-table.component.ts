@@ -52,4 +52,11 @@ export class MsTableComponent implements AfterViewInit
       this.displayedColumns.splice(index, 1);
     }
   }
+
+  tableSearch(event: Event)
+  {
+    const filter = (event.target as HTMLInputElement).value;
+  }
+
+  
 }
