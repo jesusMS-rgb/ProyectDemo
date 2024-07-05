@@ -6,12 +6,12 @@
       <input id="txtCelda2" name="txtCelda1" (paste)="pegarCelda($event)" [(ngModel)]="txtCelda2" type="text" class="form-control">
   </div>
   <div class="col-2">
-    <button class="btn btn-primary container-fluid" (click)="applyFilter()"><fa-icon [icon]="faSearch"></fa-icon></button>
+    <button class="btn btn-primary container-fluid" (click)="search()"><fa-icon [icon]="faSearch"></fa-icon></button>
   </div>
 </div>
 
 <div class="row">
     <div class="col-12" *ngIf="flgView">
-        <ms-table [dataArray]="dataArray" [displayedColumns]="formatColumn"></ms-table>
+        <ms-table #msTableGrid [dataArray]="dataArray" [displayedColumns]="formatColumn"></ms-table>
     </div>
 </div>

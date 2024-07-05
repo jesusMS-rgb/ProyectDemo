@@ -1,5 +1,5 @@
 <div class="header">
-  <label>Tecnical Demo</label>
+  <label>Technical Demo</label>
 </div>
 
 <div class="col-12 px-3 mt-3">
@@ -9,24 +9,22 @@
       <label>Filter:</label>
     </div>
   </div>
-  
+
   <div class="row">
-    <div class="col-3">
-      <input type="date" class="form-control" [(ngModel)]="inputDate">
+    <div class="col-4">
+      <input type="date" class="form-control form-control-lg" [(ngModel)]="inputDate">
     </div>
     <div class="col-2">
-      <button class="btn btn-primary"><fa-icon [icon]="iconSearch"></fa-icon>  Search</button>
+      <button class="btn btn-primary btn-lg" (click)="filterArray()"><fa-icon [icon]="iconSearch"></fa-icon> Search</button>
+    </div>
+    <div class="col-6 text-end">
+        <button class="btn btn-success mx-3 btn-lg" (click)="openModalAdd()"><fa-icon [icon]="iconPlus"></fa-icon> Add</button>
+        <button class="btn btn-warning btn-lg" (click)="resetTable()"><fa-icon [icon]="iconReturn"></fa-icon></button>
     </div>
   </div>
 
   <div class="row mt-3">
-    <div class="col-12 text-end">
-        <button class="btn btn-success" (click)="openModalAdd()"><fa-icon [icon]="iconPlus"></fa-icon> Add</button>
-    </div>
-  </div>
-
-  <div class="row mt-3">
-    <ms-table [dataArray]="data" [displayedColumns]="formatColumn"></ms-table>
+    <ms-table #msTableGrid [dataArray]="data" [displayedColumns]="formatColumn" [btnExport]="true"></ms-table>
   </div>
 
 </div>
@@ -44,3 +42,6 @@
   </div>
 </div>
 
+<div class="footer text-center">
+  <label>Version 05.07.2024</label>
+</div>

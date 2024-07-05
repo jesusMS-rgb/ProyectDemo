@@ -2,6 +2,8 @@ import { AfterViewInit, Component, Input, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { saveAs } from 'file-saver';
+import { faFileExcel, faTruckMedical } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'ms-table',
@@ -14,12 +16,15 @@ export class MsTableComponent implements AfterViewInit
   @Input() dataArray: any; 
   @Input() displayedColumns: any;
   @Input() rowsPerPage: number = 7;
-  @Input() search = ['', ''];
+  @Input() btnExport: boolean = true;
 
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
+  faExcel = faFileExcel;
+
   matData: MatTableDataSource<any>; 
+  value: string = '';
 
   constructor()
   {
@@ -53,10 +58,24 @@ export class MsTableComponent implements AfterViewInit
     }
   }
 
-  tableSearch(event: Event)
+  applyFilter(dt: any[])
   {
-    const filter = (event.target as HTMLInputElement).value;
+    this.dataArray = dt;
+    this.ngAfterViewInit();
   }
 
-  
+  exportExcel(): void
+  {
+    import('xlsx').then(xlsx => {
+      const worksheet = xlsx.utils.json_to_sheet(this.dataArray);
+      const workbook = { Sheets: { 'data': worksheet }, SheetNames: ['data'] };
+      const excelBuffer: any = xlsx.write(workbook, { bookType: 'xlsx', type: 'array' });
+      this.saveAsExcelFile(excelBuffer, 'excelFileName');
+    });
+  }
+
+  private saveAsExcelFile(buffer: any, fileName: string): void {
+    const data: Blob = new Blob([buffer], { type: 'application/octet-stream' });
+    saveAs(data, fileName + '_export_' + new Date().getTime() + '.xlsx');
+  }
 }

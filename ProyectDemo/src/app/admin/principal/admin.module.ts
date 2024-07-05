@@ -7,7 +7,6 @@ import { MainPageComponent } from './pages/main-page/main-page.component';
 import { SharedModule } from '../../shared/shared.module';
 import { MdlAddAccountComponent } from './components/mdl-add-account/mdl-add-account.component';
 
-
 @NgModule({
     declarations: [MainPageComponent, MdlAddAccountComponent],
     imports: [

@@ -14,4 +14,19 @@ label
     color: #102f41;
     font-weight: bold;
     font-family: Helvetica;
+    size: 25px;
+}
+
+.footer
+{
+    color: #102f41;
+    background: #2aa1cd;
+    flex: 0.09;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
+    font-family: Helvetica;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }

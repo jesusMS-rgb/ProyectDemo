@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 const ELEMENT_DATA: any[] = [
@@ -15,11 +15,15 @@ const ELEMENT_DATA: any[] = [
 
 export class MdlAddAccountComponent 
 {
+  @ViewChild('msTableGrid') private msTableGrid: any;
+
   faSearch = faSearch;
   formatColumn = [ 'Account', 'Description', 'Payments', 'Memo'];
   txtCelda1: string = '';
   txtCelda2: string = '';
+
   dataArray: any[] = ELEMENT_DATA;
+
   busqueda: any;
   flgView: boolean = true;
 
@@ -47,16 +51,26 @@ export class MdlAddAccountComponent
     }
   }
 
-  applyFilter()
+  search()
   {
-    this.txtCelda1 = (document.getElementById('txtCelda1') as HTMLInputElement).value.trim();
-    this.txtCelda2 = (document.getElementById('txtCelda2') as HTMLInputElement).value.trim();
+    this.txtCelda1 = (document.getElementById('txtCelda1') as HTMLInputElement).value;
+    this.txtCelda2 = (document.getElementById('txtCelda2') as HTMLInputElement).value;
 
-    let arr = [];
-    arr = ELEMENT_DATA.find(element => element.Account === this.txtCelda1 && element.Description === this.txtCelda2);
-    
-    this.dataArray = arr;
-    this.flgView!;
-    this.flgView!;
+    let arr = ELEMENT_DATA;
+    if((this.txtCelda1.length === 0 || this.txtCelda1.trim() === '') && (this.txtCelda2 .length === 0 || this.txtCelda2.trim() === ''))
+      {
+        this.resetTable();
+      }
+      else
+      {
+        arr = ELEMENT_DATA.filter(item => 
+          item.Account.toLowerCase().trim() === this.txtCelda1.toLowerCase().trim() && item.Description.toLowerCase().trim() === this.txtCelda2.toLowerCase().trim());
+      }  
+    this.msTableGrid.applyFilter(arr);
+  }
+
+  resetTable()
+  {
+    this.msTableGrid.applyFilter(ELEMENT_DATA);
   }
 }

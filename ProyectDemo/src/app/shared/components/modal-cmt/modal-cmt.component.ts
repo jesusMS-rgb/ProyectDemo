@@ -1,7 +1,8 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
-import { faTimes } from '@fortawesome/free-solid-svg-icons'
-
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'modal-cmt',
@@ -18,6 +19,9 @@ export class ModalCmtComponent implements OnInit
   @Input() ShowBtnAccept = true;
 
   iconClose = faTimes;
+  iconCheck = faCheck;
+  iconArrow = faArrowRight;
+  
   open: boolean = false;
   mdlRef: NgbModalRef | undefined;
 

@@ -8,4 +8,12 @@
   <div class="modal-body">
       <ng-content></ng-content>
   </div>
+  <div class="modal-footer">
+      <div class="row">
+        <div class="col-12">
+          <button class="btn btn-success mx-3"><fa-icon [icon]="iconCheck"></fa-icon> Agree</button>
+          <button class="btn btn-danger"><fa-icon [icon]="iconArrow"></fa-icon> Back</button>
+        </div>
+      </div>
+  </div>
 </ng-template>
